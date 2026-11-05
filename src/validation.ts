@@ -1,4 +1,4 @@
-export const roles = ['Photographer / Videographer', 'Social Media Manager', 'Content Creator', 'On-camera Presenter', 'Creative Director', 'Graphic Designer', 'Other'] as const;
+export const roles = ['Photographer / Videographer', 'Video Editor', 'Motion Graphics Designer', 'Social Media Manager', 'Content Creator', 'On-camera Presenter', 'Creative Director', 'Graphic Designer', 'Other'] as const;
 export const statuses = ['New', 'Reviewing', 'Shortlisted', 'Contacted', 'Archived'] as const;
 export type Fields = {name:string;email:string;phone:string;role:string;otherRole:string;portfolio:string};
 export const emptyFields:Fields = {name:'',email:'',phone:'',role:'',otherRole:'',portfolio:''};

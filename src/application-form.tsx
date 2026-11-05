@@ -1,10 +1,10 @@
 'use client';
 import {useState,useRef,useEffect} from 'react';
-import {ArrowUpRight,ArrowRight,ArrowLeft,Check,Upload,FileText,Link2,X,LockKeyhole,Mic,Clapperboard,MessagesSquare,Sparkles,Lightbulb,PenTool,Plus,LoaderCircle} from 'lucide-react';
+import {ArrowUpRight,ArrowRight,ArrowLeft,Check,Upload,FileText,Link2,X,LockKeyhole,Mic,Film,Layers,Clapperboard,MessagesSquare,Sparkles,Lightbulb,PenTool,Plus,LoaderCircle} from 'lucide-react';
 import {roles,emptyFields,validateFields,validateFileMeta,type Fields} from './validation';
 import {APPLY_ENDPOINT,SUPABASE_KEY} from './config';
 import {sitePath} from './paths';
-const roleIcons:Record<(typeof roles)[number],typeof Clapperboard>={'Photographer / Videographer':Clapperboard,'Social Media Manager':MessagesSquare,'Content Creator':Sparkles,'On-camera Presenter':Mic,'Creative Director':Lightbulb,'Graphic Designer':PenTool,'Other':Plus};
+const roleIcons:Record<(typeof roles)[number],typeof Clapperboard>={'Photographer / Videographer':Clapperboard,'Video Editor':Film,'Motion Graphics Designer':Layers,'Social Media Manager':MessagesSquare,'Content Creator':Sparkles,'On-camera Presenter':Mic,'Creative Director':Lightbulb,'Graphic Designer':PenTool,'Other':Plus};
 const steps=['About you','Your craft','Your work'];
 export function Brand({dark=false}:{dark?:boolean}){return <a className="brand" href={sitePath()} aria-label="Qomra careers home"><img src={sitePath(dark?"brand/qomra-logo-dark.svg?v=2":"brand/qomra-logo.svg?v=2")} alt="Qomra Creative Agency" width="638" height="244"/></a>;}
 export default function ApplicationForm(){
