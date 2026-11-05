@@ -2,6 +2,14 @@
 
 English, mobile-first application form and a separate private recruitment dashboard.
 
+## Hosting
+
+GitHub Pages automatically builds and deploys `main` after validation:
+- Application form: https://ahmed-aldrissi-ly.github.io/qomra-careers/
+- Private dashboard sign-in: https://ahmed-aldrissi-ly.github.io/qomra-careers/team/
+
+Only the website source and static build are public. Applications, notes and uploads remain in Supabase. The initial Sites address remains available and uses the same backend.
+
 ## Pages
 
 - `/` — public application form, no applicant sign-in
@@ -55,4 +63,4 @@ The function checks the project publishable API key itself. The endpoint intenti
 
 ## Operations
 
-Keep the repository private unless the owner explicitly elects to publish the source. Applicant data lives in Supabase, never in this repository or the static build. Back up database records and storage objects together. Delete attachments through the Storage API before removing an application record. CSV exports contain personal information and should remain within the hiring team.
+The owner has elected to publish this website source. Applicant data lives in Supabase, never in this repository or the static build. Back up database records and storage objects together. Delete attachments through the Storage API before removing an application record. CSV exports contain personal information and should remain within the hiring team.
