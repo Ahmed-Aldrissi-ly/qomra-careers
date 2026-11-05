@@ -5,8 +5,8 @@ English, mobile-first application form and a separate private recruitment dashbo
 ## Hosting
 
 GitHub Pages automatically builds and deploys `main` after validation:
-- Application form: https://ahmed-aldrissi-ly.github.io/qomra-careers/
-- Private dashboard sign-in: https://ahmed-aldrissi-ly.github.io/qomra-careers/team/
+- Application form: https://qomra-ca.github.io/qomra-careers/
+- Private dashboard sign-in: https://qomra-ca.github.io/qomra-careers/team/
 
 Only the website source and static build are public. Applications, notes and uploads remain in Supabase. The initial Sites address remains available and uses the same backend.
 

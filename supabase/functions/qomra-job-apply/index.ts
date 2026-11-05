@@ -1,6 +1,6 @@
 import {createClient} from '@supabase/supabase-js';
 import {validateFields,normalizePhone,normalizeLink,validateFileMeta,validFileSignature,emptyFields} from './validation.ts';
-const origins=new Set(['https://qomra-careers.qomra-ca.chatgpt.site','https://ahmed-aldrissi-ly.github.io','http://127.0.0.1:5181','http://localhost:5181']);
+const origins=new Set(['https://qomra-careers.qomra-ca.chatgpt.site','https://ahmed-aldrissi-ly.github.io','https://qomra-ca.github.io','http://127.0.0.1:5181','http://localhost:5181']);
 const bucketName='qomra-job-files';
 function keys(name:string):Record<string,string>{try{return JSON.parse(Deno.env.get(name)||'{}');}catch{return {};}}
 const secret=keys('SUPABASE_SECRET_KEYS').default||Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
