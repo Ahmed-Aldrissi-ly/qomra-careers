@@ -39,7 +39,7 @@ Supabase project: `eaqquztvxfclnbvfwgjt`. Recruitment uses its own `qomra_job_*`
 
 The public form posts to the `qomra-job-apply` Edge Function. The function validates fields and file signatures, limits request/file sizes, rate-limits submissions, stores files privately, and commits the application plus attachment metadata transactionally. Retry IDs prevent duplicate applications.
 
-The dashboard uses Google sign-in with the company account `qomra.ca@gmail.com`. Only verified company users explicitly added to `qomra_job_reviewers` can read recruitment records. A Google session alone does not grant access. On a fresh project, complete the first company Google sign-in, verify the confirmed email in Supabase Auth, and add its actual user ID to the reviewer allowlist. No password is required by the dashboard. Authentication and row-level policies protect applications, review notes, metadata and storage downloads even if someone knows the dashboard URL or public key.
+The dashboard uses email and password sign-in for the company account `qomra.ca@gmail.com`. Only authenticated users explicitly added to `qomra_job_reviewers` can read recruitment records. A session alone does not grant access. On a fresh project, create the company account through Supabase Auth, verify its email, then add its actual user ID to the reviewer allowlist. Authentication and row-level policies protect applications, review notes, metadata and storage downloads even if someone knows the dashboard URL or public key. Passwords are managed by Supabase Auth and must never be committed to source or embedded in the frontend.
 
 Reviewers can update status and private notes, not applicant contact details. The SQL allowlist controls access; hiding the dashboard link is not the security boundary. MFA is supported when enabled for the company account; update the reviewer's `require_mfa` flag when requiring assurance level 2 at the database layer.
 
@@ -65,8 +65,6 @@ The function checks the project publishable API key itself. The endpoint intenti
 
 The owner has elected to publish this website source. Applicant data lives in Supabase, never in this repository or the static build. Back up database records and storage objects together. Delete attachments through the Storage API before removing an application record. CSV exports contain personal information and should remain within the hiring team.
 
-## Google sign-in setup
+## Email and password setup
 
-Before deploying Google sign-in, configure a Web application OAuth client under the company Google Cloud account. Add `https://qomra-ca.github.io` as an authorized JavaScript origin and `https://eaqquztvxfclnbvfwgjt.supabase.co/auth/v1/callback` as its authorized redirect URI. Use only the default identity scopes (`openid`, email, profile). Store the OAuth client ID and client secret in Supabase Auth's Google provider settings, never in this repository.
-
-Add the exact redirect URL `https://qomra-ca.github.io/qomra-careers/team/` to Supabase Auth's redirect allowlist. Enable Google only after configuring the OAuth client. The client uses PKCE and validates the authenticated user plus reviewer membership before loading any recruitment data. The login hint is for convenience, not authorization.
+Enable the Email provider in Supabase Auth. Google sign-in is disabled. Create the company account in Supabase Auth and add its actual UUID to `qomra_job_reviewers`; do not put a password in SQL migrations or source files. The dashboard has no public sign-up form. Keep account credentials in the owner's password manager. Account creation alone does not provide access to recruitment data.
