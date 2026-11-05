@@ -1,0 +1,3 @@
+project_id = "qomra-careers"
+[functions.qomra-job-apply]
+verify_jwt = false
