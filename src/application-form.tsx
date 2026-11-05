@@ -6,7 +6,7 @@ import {APPLY_ENDPOINT,SUPABASE_KEY} from './config';
 import {sitePath} from './paths';
 const roleIcons=[Video,Camera,Clapperboard,MessagesSquare,Sparkles,Lightbulb,PenTool,Plus];
 const steps=['About you','Your craft','Your work'];
-export function Brand({dark=false}:{dark?:boolean}){return <a className={`brand ${dark?'brand-dark':''}`} href={sitePath()} aria-label="Qomra careers home"><img src={sitePath("brand/qomra-mark.svg")} alt="" width="37" height="39"/><span><b>Qomra</b><small>CREATIVE AGENCY</small></span></a>;}
+export function Brand({dark=false}:{dark?:boolean}){return <a className="brand" href={sitePath()} aria-label="Qomra careers home"><img src={sitePath(dark?"brand/qomra-logo-dark.svg":"brand/qomra-logo.svg")} alt="Qumra Creative Agency" width="816" height="270"/></a>;}
 export default function ApplicationForm(){
  const [step,setStep]=useState(0);const [fields,setFields]=useState<Fields>({...emptyFields});const [errors,setErrors]=useState<Record<string,string>>({});
  const [resume,setResume]=useState<File[]>([]);const [work,setWork]=useState<File[]>([]);const [busy,setBusy]=useState(false);const [progress,setProgress]=useState(0);const [error,setError]=useState('');const [receipt,setReceipt]=useState('');
